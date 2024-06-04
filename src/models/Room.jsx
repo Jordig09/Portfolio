@@ -48,7 +48,7 @@ export function Room(props) {
 
   const notebookTexture = useLoader(
     TextureLoader,
-    "https://jordig09.github.io/Portfolio/src/assets/img/notebook-material.jpg"
+    "Portfolio/src/assets/img/notebook-material.jpg"
   );
   notebookTexture.center.set(0.17, 0.33);
   notebookTexture.repeat.set(4, 4);
