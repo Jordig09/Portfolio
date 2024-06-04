@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function ProjectInfo(props) {
   const [selectedImg, setSelectedImg] = useState(0);
 
-  const imgUrl = `src/assets/img/projects/${props.project.imgUrl}`;
+  const imgUrl = `/Portfolio/img/projects/${props.project.imgUrl}`;
   const imgsUrl = [];
   for (let i = 0; i < 5; i++) {
     imgsUrl[i] = `${imgUrl}-${i}.jpg`;
