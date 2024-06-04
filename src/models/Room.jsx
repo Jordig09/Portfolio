@@ -10,7 +10,7 @@ import RightMonitor from "../components/RightMonitor";
 import { Context } from "../components/App";
 
 export function Room(props) {
-  const { nodes, materials } = useGLTF("/Portfolio/public/room.glb");
+  const { nodes, materials } = useGLTF("/public/room.glb");
 
   const { sectionActive } = useContext(Context);
 
@@ -966,4 +966,4 @@ export function Room(props) {
   );
 }
 
-useGLTF.preload("/Portfolio/public/room.glb");
+useGLTF.preload("/public/room.glb");
