@@ -6,8 +6,8 @@ function RightMonitor(props) {
   const [selectedProject, setSelectedProject] = useState({
     imgUrl: "digital-hard-dashboard",
     projectName: "Digital Hard - Dashboard",
-    description:
-      "Lorem ipsum adipisicing elit. Assumenda deleniti explicabo velit, quod possimus fugit aliquid exercitationem est id nemo recusandae doloremque, quibusdam distinctio provident corrupti maxime quasi quas maiores.",
+    description: `Panel de administración con acceso a base de datos propia de usuarios y productos
+    Conexión con API REST`,
     tecnologies: "React, Node, Express, Git, Bootstrap",
     github: "url",
     web: "url",
