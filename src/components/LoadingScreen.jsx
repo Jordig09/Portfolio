@@ -3,28 +3,25 @@ import { useProgress } from "@react-three/drei";
 import { Context } from "./App";
 
 export const LoadingScreen = () => {
-  const { progress } = useProgress();
+  const { progress, loaded, total } = useProgress();
 
   const { loadingProgress, setLoadingProgress } = useContext(Context);
 
-  const [isEnabled, setIsEnabled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
-    let intervalId;
-    if (progress === 100) {
+    if (loaded === total) {
       setLoadingProgress(20);
     }
-  }, [progress]);
+  }, [loaded, total]);
 
   useEffect(() => {
     let intervalId;
     if (loadingProgress < 100) {
       intervalId = setInterval(() => {
         setLoadingProgress((prevProgress) => Math.min(prevProgress + 1, 100));
-      }, 5); // 3000ms/100 = 30ms por incremento de 1%
+      }, 5);
     }
-    if (loadingProgress === 100) setIsEnabled(true);
     return () => clearInterval(intervalId);
   }, [loadingProgress]);
 
@@ -44,7 +41,7 @@ export const LoadingScreen = () => {
         </div>
         <button
           className="loadingScreen__button"
-          style={{ opacity: isEnabled ? 1 : 0 }}
+          style={{ opacity: loadingProgress === 100 ? 1 : 0 }}
           onClick={() => setIsHidden(true)}
         >
           Enter

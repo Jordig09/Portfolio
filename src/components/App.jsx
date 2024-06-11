@@ -11,8 +11,6 @@ import { useProgress } from "@react-three/drei";
 export const Context = createContext();
 
 function App() {
-  const { progress } = useProgress();
-
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [assetsLoaded, setAssetsLoaded] = useState(false);
   const [sectionActive, setSectionActive] = useState("none");
@@ -45,7 +43,9 @@ function App() {
         </main>
       )}
       <Canvas className="canvas" shadows>
-        <Suspense fallback={null}>{progress === 100 && <HomeScene />}</Suspense>
+        <Suspense fallback={null}>
+          {loadingProgress === 100 && <HomeScene />}
+        </Suspense>
       </Canvas>
       <LoadingScreen />
     </Context.Provider>
