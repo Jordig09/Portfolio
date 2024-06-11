@@ -1,7 +1,10 @@
 import { useContext, useEffect, useState } from "react";
+import { useProgress } from "@react-three/drei";
 import { Context } from "./App";
 
 export const LoadingScreen = () => {
+  const { progress } = useProgress();
+
   const { loadingProgress, setLoadingProgress } = useContext(Context);
 
   const [isEnabled, setIsEnabled] = useState(false);
@@ -9,10 +12,17 @@ export const LoadingScreen = () => {
 
   useEffect(() => {
     let intervalId;
+    if (progress === 100) {
+      setLoadingProgress(20);
+    }
+  }, [progress]);
+
+  useEffect(() => {
+    let intervalId;
     if (loadingProgress < 100) {
       intervalId = setInterval(() => {
         setLoadingProgress((prevProgress) => Math.min(prevProgress + 1, 100));
-      }, 1); // 3000ms/100 = 30ms por incremento de 1%
+      }, 5); // 3000ms/100 = 30ms por incremento de 1%
     }
     if (loadingProgress === 100) setIsEnabled(true);
     return () => clearInterval(intervalId);
