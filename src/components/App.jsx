@@ -6,7 +6,6 @@ import HomeScene from "../scenes/HomeScene";
 import BackButton from "./BackButton";
 import SideButton from "./SideButton";
 import { LoadingScreen } from "./LoadingScreen";
-import { useProgress } from "@react-three/drei";
 
 export const Context = createContext();
 
@@ -44,7 +43,7 @@ function App() {
       )}
       <Canvas className="canvas" shadows>
         <Suspense fallback={null}>
-          {loadingProgress === 100 && <HomeScene />}
+          <HomeScene />
         </Suspense>
       </Canvas>
       <LoadingScreen />

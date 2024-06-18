@@ -20,7 +20,7 @@ export const LoadingScreen = () => {
     if (loadingProgress < 100) {
       intervalId = setInterval(() => {
         setLoadingProgress((prevProgress) => Math.min(prevProgress + 1, 100));
-      }, 5);
+      }, 40);
     }
     return () => clearInterval(intervalId);
   }, [loadingProgress]);
@@ -37,11 +37,14 @@ export const LoadingScreen = () => {
             style={{
               width: `${loadingProgress}%`,
             }}
-          />
+          ></div>
         </div>
         <button
-          className="loadingScreen__button"
+          className={`loadingScreen__button ${
+            loadingProgress != 100 ? "loading" : ""
+          }`}
           style={{ opacity: loadingProgress === 100 ? 1 : 0 }}
+          disabled={loadingProgress != 100}
           onClick={() => setIsHidden(true)}
         >
           Enter

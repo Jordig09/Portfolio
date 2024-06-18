@@ -1,5 +1,5 @@
 function ProjectCard(props) {
-  const imgUrl = `/Portfolio/img/projects/${props.projectImg}-0.jpg`;
+  const imgUrl = `/portfolio/img/projects/${props.projectImg}-0.jpg`;
   // const url = `src/assets/img/projects/digital-hard-dashboard.jpg`;
   return (
     <div
